@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiResponses from "../formApiData";
-
+import "../style/dynamicForm.css";
 const DynamicForm = () => {
   const [formType, setFormType] = useState("");
   const [formFields, setFormFields] = useState([]);
@@ -72,7 +72,9 @@ const DynamicForm = () => {
             <div key={field.name}>
               <label htmlFor={field.name}>{field.label}:</label>
 
-              {["text", "email", "password", "number", "date"].includes(field.type) ? (
+              {["text", "email", "password", "number", "date"].includes(
+                field.type
+              ) ? (
                 <input
                   type={field.type}
                   id={field.name}
@@ -106,7 +108,9 @@ const DynamicForm = () => {
                 />
               ) : null}
 
-              {formErrors[field.name] && <p style={{ color: "red" }}>{formErrors[field.name]}</p>}
+              {formErrors[field.name] && (
+                <p style={{ color: "red" }}>{formErrors[field.name]}</p>
+              )}
             </div>
           ))}
 
